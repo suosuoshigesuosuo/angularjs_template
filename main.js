@@ -1,0 +1,26 @@
+require.config({
+    baseUrl:'./',
+    paths:{
+        'app':'./app',
+        'angular':'./node_modules/angular/angular.min',
+        'uiRouter':'./node_modules/@uirouter/angularjs/release/angular-ui-router',
+        'uiBootstrap':'./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls',
+        'jquery':'./node_modules/jquery/dist/jquery.min',
+        'bootstrap':'./node_modules/bootstrap/dist/js/bootstrap.min'
+    },
+    shim:{
+        'angular':{
+            exports:'angular'
+        },
+        'uiRouter':{
+            deps:['angular']
+        },
+        'uiBootstrap':{
+            deps:['angular']
+        }
+    }
+})
+
+require(['app'],function(app){
+    angular.bootstrap(document,[app.name]);
+})
